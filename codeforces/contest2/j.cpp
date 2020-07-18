@@ -19,19 +19,20 @@ int main(){
         int l = 1;
         int r = k;
         int ans = k-1;
-        ll val = suma(k+1);
+        ll val = suma(k);
         while(l <= r){
             int mid = (l+r)/2;
-            ll x = suma(mid);
+            ll x = suma(mid-1);
             x = val - x;
-            cout << x << endl;
+            cout << x << ' ' << mid << endl;
             if(n-x > 0 ){
                 if(n-x < mid){
-                    ans = min(ans,k-mid + 2);
+                    ans = min(ans,k-mid + 1);
                 }
                 r = mid - 1;
             }
             else if(n-x == 0){
+                cout << "hihi";
                 ans = k-mid + 1;
                 break;
             }

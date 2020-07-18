@@ -14,13 +14,12 @@ int main(){
        a[x]++;
        a[y]++;
     }
-    int ans = 0;
-    int j = n-1;
+    long long ans = 0;
+    sort(begin(a),end(a));
+    int j = n;
     for(int i = 0;i <n;i++){
-        if(a[i] >=k){
-            ans += j;
-            j--;
-        }
+        while(i < j && a[i]+a[j]>=k) j--;
+        ans += (n-j);
     }
     cout << ans;
 }
